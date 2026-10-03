@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SS Media Network LLP — premium digital outdoor advertising and LED media solutions.">
+  <title>SS Media Network LLP | Premium Digital Outdoor Media</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap');
+
+    :root{
+      --black:#050506;
+      --obsidian:#090a0c;
+      --graphite:#121316;
+      --ivory:#f4f1e9;
+      --white:#fbfaf7;
+      --champagne:#c9aa70;
+      --champagne-soft:#e2d2b1;
+      --muted:#9a9b9f;
+      --line:rgba(255,255,255,.11);
+      --light-line:#e5e1d8;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"DM Sans",sans-serif;
+      color:var(--ivory);
+      background:var(--black);
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{text-decoration:none;color:inherit}
+
+    nav{
+      height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:rgba(5,5,6,.78);
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(18px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      letter-spacing:-.025em;
+      font-size:15px;
+    }
+
+    .mark{
+      width:38px;
+      height:38px;
+      border:1px solid rgba(201,170,112,.8);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:10px;
+      letter-spacing:-.05em;
+      color:var(--champagne-soft);
+      box-shadow:inset 0 0 0 5px rgba(201,170,112,.035);
+    }
+
+    .links{display:flex;gap:34px;font-size:13px;color:#aaa9a5}
+    .links a{transition:color .2s ease}
+    .links a:hover{color:var(--champagne-soft)}
+
+    .nav-cta{
+      padding:11px 19px;
+      border:1px solid rgba(201,170,112,.65);
+      border-radius:999px;
+      font-size:13px;
+      color:var(--champagne-soft);
+      transition:all .25s ease;
+    }
+    .nav-cta:hover{background:var(--champagne);color:var(--black)}
+
+    .wrap{width:min(1180px,91%);margin:auto}
+
+    .hero{
+      min-height:calc(100vh - 82px);
+      display:flex;
+      align-items:center;
+      padding:110px 0 90px;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 82% 24%,rgba(201,170,112,.14),transparent 22%),
+        radial-gradient(circle at 12% 85%,rgba(255,255,255,.035),transparent 25%),
+        linear-gradient(135deg,#050506 0%,#0a0b0d 55%,#070708 100%);
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      right:-250px;
+      bottom:-310px;
+      border:1px solid rgba(201,170,112,.11);
+      border-radius:50%;
+      box-shadow:0 0 0 70px rgba(201,170,112,.018),0 0 0 140px rgba(201,170,112,.012);
+    }
+
+    .eyebrow{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      color:var(--champagne);
+      font-weight:700;
+      margin-bottom:24px;
+    }
+
+    h1{
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(54px,8vw,104px);
+      line-height:.94;
+      letter-spacing:-.075em;
+      max-width:960px;
+      font-weight:700;
+    }
+
+    .hero h1 em{
+      font-family:"Playfair Display",serif;
+      font-style:italic;
+      font-weight:500;
+      color:var(--champagne-soft);
+      letter-spacing:-.05em;
+    }
+
+    .hero p{
+      max-width:630px;
+      margin-top:32px;
+      font-size:18px;
+      line-height:1.7;
+      color:#aaa9a5;
+    }
+
+    .actions{display:flex;gap:13px;margin-top:38px;flex-wrap:wrap}
+
+    .btn{
+      padding:14px 22px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.01em;
+      border:1px solid rgba(201,170,112,.62);
+      display:inline-block;
+      transition:all .25s ease;
+    }
+
+    .btn.primary{
+      background:var(--champagne);
+      color:#0a0907;
+      border-color:var(--champagne);
+    }
+    .btn.primary:hover{background:#ddc18d;transform:translateY(-2px)}
+    .btn.secondary{
+      background:transparent;
+      color:var(--ivory);
+      border-color:rgba(255,255,255,.18);
+    }
+    .btn.secondary:hover{border-color:rgba(201,170,112,.6);color:var(--champagne-soft)}
+
+    .hero-note{
+      margin-top:70px;
+      border-top:1px solid rgba(255,255,255,.09);
+      padding-top:19px;
+      color:#777871;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+
+    section{padding:110px 0}
+
+    #about{
+      background:var(--ivory);
+      color:#10100f;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:60px;
+      align-items:end;
+      margin-bottom:52px;
+    }
+
+    .section-head h2{
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(38px,5vw,60px);
+      line-height:1;
+      letter-spacing:-.065em;
+      font-weight:700;
+    }
+
+    .section-head p{max-width:430px;color:#72716c;font-size:15px;line-height:1.75}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+    .card{
+      border:1px solid #dedbd3;
+      border-radius:4px;
+      padding:30px;
+      min-height:260px;
+      background:rgba(255,255,255,.4);
+      transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 22px 55px rgba(25,24,21,.09);
+      border-color:#c9aa70;
+    }
+
+    .num{
+      font-size:10px;
+      color:#9b978d;
+      letter-spacing:.2em;
+      margin-bottom:75px;
+    }
+
+    .card h3{
+      font-family:"Manrope",sans-serif;
+      font-size:21px;
+      letter-spacing:-.03em;
+      margin-bottom:9px;
+    }
+
+    .card p{color:#77756f;font-size:14px;line-height:1.7}
+
+    .showcase{
+      background:var(--obsidian);
+      color:var(--white);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .showcase .section-head p{color:#888a8f}
+
+    .screen{
+      min-height:490px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:3px;
+      padding:44px;
+      display:flex;
+      align-items:flex-end;
+      background:
+        linear-gradient(120deg,rgba(255,255,255,.04),transparent 35%),
+        radial-gradient(circle at 76% 24%,rgba(201,170,112,.34),transparent 25%),
+        radial-gradient(circle at 45% 85%,rgba(255,255,255,.05),transparent 32%),
+        linear-gradient(135deg,#17181c,#030304);
+      overflow:hidden;
+      position:relative;
+      box-shadow:0 30px 100px rgba(0,0,0,.4);
+    }
+
+    .screen:before{
+      content:"SS";
+      position:absolute;
+      font-size:310px;
+      font-family:"Manrope",sans-serif;
+      font-weight:800;
+      letter-spacing:-.13em;
+      right:-25px;
+      top:5px;
+      color:rgba(255,255,255,.025);
+    }
+
+    .screen:after{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      width:45%;
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--champagne),transparent);
+      opacity:.7;
+    }
+
+    .screen-copy{position:relative;z-index:1;max-width:650px}
+    .screen-copy small{
+      color:var(--champagne);
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-size:10px;
+      font-weight:700;
+    }
+
+    .screen-copy h3{
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(38px,5vw,68px);
+      line-height:.96;
+      letter-spacing:-.065em;
+      margin:15px 0;
+    }
+
+    .screen-copy p{color:#999ca2;max-width:530px;font-size:15px}
+
+    #locations{
+      background:#0b0c0e;
+      color:var(--white);
+    }
+
+    #locations .section-head p{color:#898b90}
+
+    .locations{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+
+    .location{
+      padding:30px 25px 30px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .location:nth-child(2n){padding-left:25px;border-left:1px solid var(--line)}
+    .location strong{font-family:"Manrope",sans-serif;font-size:20px}
+    .location span{display:block;color:#7e8085;font-size:13px;margin-top:8px}
+
+    .contact{
+      background:var(--ivory);
+      color:#10100f;
+      padding:105px 0;
+    }
+
+    .contact-box{
+      border:1px solid #d9d5cc;
+      border-radius:3px;
+      padding:58px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:45px;
+      background:rgba(255,255,255,.25);
+    }
+
+    .contact h2{
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(38px,5vw,62px);
+      line-height:.98;
+      letter-spacing:-.065em;
+      max-width:650px;
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.09);
+      padding:29px 0;
+      color:#73757a;
+      font-size:11px;
+      letter-spacing:.04em;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      background:#050506;
+    }
+
+    @media(max-width:760px){
+      nav{height:72px}
+      .links{display:none}
+      .hero{min-height:auto;padding:90px 0 75px}
+      section{padding:75px 0}
+      .grid,.locations{grid-template-columns:1fr}
+      .section-head,.contact-box{display:block}
+      .section-head p{margin-top:20px}
+      .location,.location:nth-child(2n){padding:25px 0;border-left:0}
+      .contact-box{padding:35px}
+      .contact h2{margin-bottom:28px}
+      .screen{min-height:420px;padding:28px}
+      footer{display:block}
+      footer div+div{margin-top:8px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+      <a class="brand" href="#"><span class="mark">SS</span>SS Media Network LLP</a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#media">Media</a>
+        <a href="#locations">Locations</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="mailto:connect@ssmedianetwork.in">Enquire</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Digital Outdoor Media</div>
+        <h1>Own the moment.<br><em>Own the attention.</em></h1>
+        <p>Premium digital outdoor media for brands that want to be seen, remembered and experienced in the real world.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact">Plan a campaign</a>
+          <a class="btn secondary" href="#media">Explore media</a>
+        </div>
+        <div class="hero-note">SS Media Network LLP · Hyderabad, India</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Simple media.<br>Strong impact.</h2>
+          <p>We connect brands with premium digital screens in high-footfall locations — giving campaigns a physical presence that is difficult to ignore.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><div class="num">01</div><h3>Premium visibility</h3><p>Large-format LED screens built for prominent, high-attention placements.</p></div>
+          <div class="card"><div class="num">02</div><h3>Brand presence</h3><p>Dedicated opportunities for brands that want more than a conventional advertising slot.</p></div>
+          <div class="card"><div class="num">03</div><h3>Flexible campaigns</h3><p>Choose campaign durations and packages that fit your launch, promotion or brand objective.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="media" class="showcase">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Built for<br>attention.</h2>
+          <p>Our digital outdoor media is designed around visibility, repeat exposure and premium environments.</p>
+        </div>
+        <div class="screen">
+          <div class="screen-copy">
+            <small>SS Media Network</small>
+            <h3>Your brand.<br>On the big screen.</h3>
+            <p>High-impact digital advertising for brands, agencies and businesses looking to own attention in the real world.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="locations">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Our media<br>network.</h2>
+          <p>Strategically placed screens serving busy public and corporate environments in Hyderabad.</p>
+        </div>
+        <div class="locations">
+          <div class="location"><strong>Jubilee Bus Stand</strong><span>Secunderabad · Digital outdoor media · Secunderabad</span></div>
+          <div class="location"><strong>GAR InfoBan</strong><span>Kokapet · Premium corporate environment · Kokapet</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow">Start a conversation</div>
+            <h2>Have a brand that deserves attention?</h2>
+          </div>
+          <div><a class="btn primary" href="mailto:connect@ssmedianetwork.in?subject=Advertising%20Enquiry">connect@ssmedianetwork.in</a><div style="font-size:12px;color:#8a8e95;margin-top:10px;text-align:center">Brand partnerships & media enquiries</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 SS Media Network LLP. All rights reserved.</div>
+    <div>Digital Outdoor Media · Hyderabad, India</div>
+  </footer>
+</body>
+</html>
