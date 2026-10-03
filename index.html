@@ -3,465 +3,1549 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SS Media Network LLP — premium digital outdoor advertising and LED media solutions.">
+  <meta name="description" content="SS Media Network LLP — Premium Digital Outdoor Advertising (DOOH) network across high-density corporate and transit hubs in Hyderabad.">
   <title>SS Media Network LLP | Premium Digital Outdoor Media</title>
+  
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap');
 
-    :root{
-      --black:#050506;
-      --obsidian:#090a0c;
-      --graphite:#121316;
-      --ivory:#f4f1e9;
-      --white:#fbfaf7;
-      --champagne:#c9aa70;
-      --champagne-soft:#e2d2b1;
-      --muted:#9a9b9f;
-      --line:rgba(255,255,255,.11);
-      --light-line:#e5e1d8;
+    :root {
+      --black: #050506;
+      --obsidian: #090a0c;
+      --graphite: #121316;
+      --card-bg: #0c0d10;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.14);
+      --ivory: #f4f1e9;
+      --white: #fbfaf7;
+      --champagne: #c9aa70;
+      --champagne-soft: #e2d2b1;
+      --champagne-glow: rgba(201, 170, 112, 0.15);
+      --emerald: #34d399;
+      --emerald-bg: rgba(52, 211, 153, 0.08);
+      --emerald-border: rgba(52, 211, 153, 0.3);
+      --amber: #f87171;
+      --amber-bg: rgba(248, 113, 113, 0.08);
+      --amber-border: rgba(248, 113, 113, 0.3);
+      --muted: #8d9098;
+      --body-text: #b1b4bd;
+      --line: rgba(255, 255, 255, 0.08);
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:"DM Sans",sans-serif;
-      color:var(--ivory);
-      background:var(--black);
-      line-height:1.5;
-      -webkit-font-smoothing:antialiased;
-    }
-    a{text-decoration:none;color:inherit}
-
-    nav{
-      height:82px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      background:rgba(5,5,6,.78);
-      position:sticky;
-      top:0;
-      z-index:20;
-      backdrop-filter:blur(18px);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:700;
-      letter-spacing:-.025em;
-      font-size:15px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .mark{
-      width:38px;
-      height:38px;
-      border:1px solid rgba(201,170,112,.8);
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      font-size:10px;
-      letter-spacing:-.05em;
-      color:var(--champagne-soft);
-      box-shadow:inset 0 0 0 5px rgba(201,170,112,.035);
+    body {
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ivory);
+      background: var(--black);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    .links{display:flex;gap:34px;font-size:13px;color:#aaa9a5}
-    .links a{transition:color .2s ease}
-    .links a:hover{color:var(--champagne-soft)}
-
-    .nav-cta{
-      padding:11px 19px;
-      border:1px solid rgba(201,170,112,.65);
-      border-radius:999px;
-      font-size:13px;
-      color:var(--champagne-soft);
-      transition:all .25s ease;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
-    .nav-cta:hover{background:var(--champagne);color:var(--black)}
 
-    .wrap{width:min(1180px,91%);margin:auto}
+    button {
+      font-family: inherit;
+    }
 
-    .hero{
-      min-height:calc(100vh - 82px);
-      display:flex;
-      align-items:center;
-      padding:110px 0 90px;
-      position:relative;
-      overflow:hidden;
+    .wrap {
+      width: min(1140px, 92%);
+      margin: auto;
+    }
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 5, 6, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0 24px 0 2px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      gap: 10px;
+    }
+
+    /* Hamburger Menu Button - Borderless with 2px screen edge placement */
+    .menu-btn {
+      background: transparent;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      color: var(--ivory);
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+      flex-shrink: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .menu-btn:hover,
+    .menu-btn:focus,
+    .menu-btn:active {
+      background: transparent;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      color: var(--champagne-soft);
+      transform: scale(1.08);
+    }
+
+    /* Sidebar Drawer & Overlay */
+    .sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 4, 6, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .sidebar-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: min(340px, 86vw);
+      background: #090a0d;
+      border-right: 1px solid var(--line);
+      z-index: 101;
+      transform: translateX(-100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 20px 0 60px rgba(0, 0, 0, 0.7);
+    }
+
+    .sidebar-drawer.active {
+      transform: translateX(0);
+    }
+
+    .sidebar-header {
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sidebar-close-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      color: var(--muted);
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-close-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--ivory);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .sidebar-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .sidebar-group-title {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--champagne);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sidebar-link {
+      padding: 11px 14px;
+      border-radius: 6px;
+      color: #cfd2db;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      background: transparent;
+      border: 1px solid transparent;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(201, 170, 112, 0.08);
+      border-color: rgba(201, 170, 112, 0.25);
+      color: var(--champagne-soft);
+      transform: translateX(3px);
+    }
+
+    .sidebar-badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .sidebar-badge.avail {
+      background: var(--emerald-bg);
+      border: 1px solid var(--emerald-border);
+      color: #6ee7b7;
+    }
+
+    .sidebar-badge.occ {
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      color: #fca5a5;
+    }
+
+    .sidebar-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--line);
+      background: #060709;
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+      user-select: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .brand:hover {
+      opacity: 0.95;
+      transform: translateY(-0.5px);
+    }
+
+    .brand-mark {
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      font-size: 23px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #ffffff 15%, #edd8b2 60%, #c9aa70 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 12px rgba(201, 170, 112, 0.25));
+    }
+
+    .brand-name {
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 65px 0 38px;
+      position: relative;
+      overflow: hidden;
       background:
-        radial-gradient(circle at 82% 24%,rgba(201,170,112,.14),transparent 22%),
-        radial-gradient(circle at 12% 85%,rgba(255,255,255,.035),transparent 25%),
-        linear-gradient(135deg,#050506 0%,#0a0b0d 55%,#070708 100%);
+        radial-gradient(circle at 82% 20%, rgba(201, 170, 112, 0.11), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.025), transparent 28%),
+        linear-gradient(135deg, #050506 0%, #090a0d 50%, #060608 100%);
+      border-bottom: 1px solid var(--line);
     }
 
-    .hero:after{
-      content:"";
-      position:absolute;
-      width:520px;
-      height:520px;
-      right:-250px;
-      bottom:-310px;
-      border:1px solid rgba(201,170,112,.11);
-      border-radius:50%;
-      box-shadow:0 0 0 70px rgba(201,170,112,.018),0 0 0 140px rgba(201,170,112,.012);
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--champagne);
+      font-weight: 700;
+      margin-bottom: 20px;
     }
 
-    .eyebrow{
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.24em;
-      color:var(--champagne);
-      font-weight:700;
-      margin-bottom:24px;
+    h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(44px, 7vw, 92px);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+      max-width: 900px;
+      font-weight: 700;
+      color: var(--white);
     }
 
-    h1{
-      font-family:"Manrope",sans-serif;
-      font-size:clamp(54px,8vw,104px);
-      line-height:.94;
-      letter-spacing:-.075em;
-      max-width:960px;
-      font-weight:700;
+    h1 em {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--champagne-soft);
+      letter-spacing: -0.03em;
     }
 
-    .hero h1 em{
-      font-family:"Playfair Display",serif;
-      font-style:italic;
-      font-weight:500;
-      color:var(--champagne-soft);
-      letter-spacing:-.05em;
+    .hero p {
+      max-width: 610px;
+      margin-top: 26px;
+      font-size: 16.5px;
+      line-height: 1.65;
+      color: var(--muted);
     }
 
-    .hero p{
-      max-width:630px;
-      margin-top:32px;
-      font-size:18px;
-      line-height:1.7;
-      color:#aaa9a5;
+    #locations {
+      padding: 45px 0 50px;
+      background: #07080a;
+      position: relative;
     }
 
-    .actions{display:flex;gap:13px;margin-top:38px;flex-wrap:wrap}
-
-    .btn{
-      padding:14px 22px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:.01em;
-      border:1px solid rgba(201,170,112,.62);
-      display:inline-block;
-      transition:all .25s ease;
+    .section-head {
+      margin-bottom: 44px;
     }
 
-    .btn.primary{
-      background:var(--champagne);
-      color:#0a0907;
-      border-color:var(--champagne);
-    }
-    .btn.primary:hover{background:#ddc18d;transform:translateY(-2px)}
-    .btn.secondary{
-      background:transparent;
-      color:var(--ivory);
-      border-color:rgba(255,255,255,.18);
-    }
-    .btn.secondary:hover{border-color:rgba(201,170,112,.6);color:var(--champagne-soft)}
-
-    .hero-note{
-      margin-top:70px;
-      border-top:1px solid rgba(255,255,255,.09);
-      padding-top:19px;
-      color:#777871;
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
+    .section-head .eyebrow {
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      margin-bottom: 12px;
     }
 
-    section{padding:110px 0}
-
-    #about{
-      background:var(--ivory);
-      color:#10100f;
+    .section-head h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(34px, 4.5vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      font-weight: 700;
+      color: var(--white);
     }
 
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      gap:60px;
-      align-items:end;
-      margin-bottom:52px;
+    .section-head p {
+      color: var(--body-text);
+      font-size: 18px;
+      line-height: 1.6;
+      margin-top: 10px;
+      max-width: 680px;
     }
 
-    .section-head h2{
-      font-family:"Manrope",sans-serif;
-      font-size:clamp(38px,5vw,60px);
-      line-height:1;
-      letter-spacing:-.065em;
-      font-weight:700;
+    /* Single line on desktop, clean 2 lines on mobile */
+    .network-subtitle {
+      color: var(--body-text);
+      font-size: 18px;
+      line-height: 1.6;
+      margin-top: 10px;
+      white-space: nowrap;
     }
 
-    .section-head p{max-width:430px;color:#72716c;font-size:15px;line-height:1.75}
-
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-
-    .card{
-      border:1px solid #dedbd3;
-      border-radius:4px;
-      padding:30px;
-      min-height:260px;
-      background:rgba(255,255,255,.4);
-      transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+    .network-subtitle span {
+      display: inline;
     }
 
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 22px 55px rgba(25,24,21,.09);
-      border-color:#c9aa70;
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      align-items: start;
     }
 
-    .num{
-      font-size:10px;
-      color:#9b978d;
-      letter-spacing:.2em;
-      margin-bottom:75px;
+    .location-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 30px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
     }
 
-    .card h3{
-      font-family:"Manrope",sans-serif;
-      font-size:21px;
-      letter-spacing:-.03em;
-      margin-bottom:9px;
+    .location-card:hover {
+      border-color: rgba(201, 170, 112, 0.3);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .card p{color:#77756f;font-size:14px;line-height:1.7}
-
-    .showcase{
-      background:var(--obsidian);
-      color:var(--white);
-      position:relative;
-      overflow:hidden;
+    .loc-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 12px;
     }
 
-    .showcase .section-head p{color:#888a8f}
-
-    .screen{
-      min-height:490px;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:3px;
-      padding:44px;
-      display:flex;
-      align-items:flex-end;
-      background:
-        linear-gradient(120deg,rgba(255,255,255,.04),transparent 35%),
-        radial-gradient(circle at 76% 24%,rgba(201,170,112,.34),transparent 25%),
-        radial-gradient(circle at 45% 85%,rgba(255,255,255,.05),transparent 32%),
-        linear-gradient(135deg,#17181c,#030304);
-      overflow:hidden;
-      position:relative;
-      box-shadow:0 30px 100px rgba(0,0,0,.4);
+    .loc-title {
+      font-family: "Manrope", sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.03em;
     }
 
-    .screen:before{
-      content:"SS";
-      position:absolute;
-      font-size:310px;
-      font-family:"Manrope",sans-serif;
-      font-weight:800;
-      letter-spacing:-.13em;
-      right:-25px;
-      top:5px;
-      color:rgba(255,255,255,.025);
+    .loc-sub {
+      font-size: 12px;
+      color: var(--champagne);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 3px;
+      white-space: nowrap;
     }
 
-    .screen:after{
-      content:"";
-      position:absolute;
-      left:0;
-      top:0;
-      width:45%;
-      height:1px;
-      background:linear-gradient(90deg,transparent,var(--champagne),transparent);
-      opacity:.7;
+    .loc-tag {
+      font-size: 10.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #b7b9c2;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
     }
 
-    .screen-copy{position:relative;z-index:1;max-width:650px}
-    .screen-copy small{
-      color:var(--champagne);
-      text-transform:uppercase;
-      letter-spacing:.2em;
-      font-size:10px;
-      font-weight:700;
+    .loc-desc {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-top: 8px;
+      margin-bottom: 22px;
     }
 
-    .screen-copy h3{
-      font-family:"Manrope",sans-serif;
-      font-size:clamp(38px,5vw,68px);
-      line-height:.96;
-      letter-spacing:-.065em;
-      margin:15px 0;
+    .expand-btn-full {
+      width: 100%;
+      background: rgba(201, 170, 112, 0.06);
+      border: 1px solid rgba(201, 170, 112, 0.35);
+      color: var(--champagne-soft);
+      padding: 13px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.25s ease;
     }
 
-    .screen-copy p{color:#999ca2;max-width:530px;font-size:15px}
-
-    #locations{
-      background:#0b0c0e;
-      color:var(--white);
+    .expand-btn-full:hover {
+      background: rgba(201, 170, 112, 0.14);
+      border-color: rgba(201, 170, 112, 0.6);
+      color: var(--ivory);
     }
 
-    #locations .section-head p{color:#898b90}
-
-    .locations{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
-
-    .location{
-      padding:30px 25px 30px 0;
-      border-bottom:1px solid var(--line);
-    }
-    .location:nth-child(2n){padding-left:25px;border-left:1px solid var(--line)}
-    .location strong{font-family:"Manrope",sans-serif;font-size:20px}
-    .location span{display:block;color:#7e8085;font-size:13px;margin-top:8px}
-
-    .contact{
-      background:var(--ivory);
-      color:#10100f;
-      padding:105px 0;
+    .expand-btn-full .chevron {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .contact-box{
-      border:1px solid #d9d5cc;
-      border-radius:3px;
-      padding:58px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:45px;
-      background:rgba(255,255,255,.25);
+    .expand-btn-full[aria-expanded="true"] .chevron {
+      transform: rotate(180deg);
     }
 
-    .contact h2{
-      font-family:"Manrope",sans-serif;
-      font-size:clamp(38px,5vw,62px);
-      line-height:.98;
-      letter-spacing:-.065em;
-      max-width:650px;
+    .status-btn-full {
+      width: 100%;
+      margin-top: 8px;
+      padding: 11px 16px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      user-select: none;
     }
 
-    footer{
-      border-top:1px solid rgba(255,255,255,.09);
-      padding:29px 0;
-      color:#73757a;
-      font-size:11px;
-      letter-spacing:.04em;
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      background:#050506;
+    .status-btn-full.available {
+      background: var(--emerald-bg);
+      border: 1px solid var(--emerald-border);
+      color: #6ee7b7;
     }
 
-    @media(max-width:760px){
-      nav{height:72px}
-      .links{display:none}
-      .hero{min-height:auto;padding:90px 0 75px}
-      section{padding:75px 0}
-      .grid,.locations{grid-template-columns:1fr}
-      .section-head,.contact-box{display:block}
-      .section-head p{margin-top:20px}
-      .location,.location:nth-child(2n){padding:25px 0;border-left:0}
-      .contact-box{padding:35px}
-      .contact h2{margin-bottom:28px}
-      .screen{min-height:420px;padding:28px}
-      footer{display:block}
-      footer div+div{margin-top:8px}
+    .status-btn-full.available .status-beacon {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+      animation: pulseDot 2s infinite;
+    }
+
+    .status-btn-full.occupied {
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      color: #fca5a5;
+    }
+
+    .status-btn-full.occupied .status-beacon {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 10px var(--amber);
+    }
+
+    .dropdown-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dropdown-content.open {
+      grid-template-rows: 1fr;
+    }
+
+    .dropdown-inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    /* When open, allow inner content to display gracefully */
+    .dropdown-content.open .dropdown-inner {
+      overflow: visible;
+    }
+
+    .accordion-body {
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      margin-top: 18px;
+    }
+
+    .metric-grid-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .metric-box-vertical {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 6px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .metric-box-vertical:hover {
+      background: rgba(201, 170, 112, 0.05);
+      border-color: rgba(201, 170, 112, 0.25);
+    }
+
+    .metric-pill-text {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #d1d3db;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .story-narrative {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: var(--body-text);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .story-narrative p {
+      margin: 0;
+      color: var(--body-text);
+    }
+
+    .companies-container {
+      margin-top: 24px;
+    }
+
+    .section-micro-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--champagne-soft);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .companies-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .company-cell {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: #ced1d9;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      cursor: default;
+    }
+
+    .company-cell:hover,
+    .company-cell:active {
+      background: rgba(201, 170, 112, 0.12);
+      border-color: rgba(201, 170, 112, 0.45);
+      color: var(--champagne-soft);
+      transform: translateY(-1px);
+    }
+
+    .gallery-toggle-btn {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(201, 170, 112, 0.3);
+      color: var(--champagne-soft);
+      padding: 13px 18px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      margin-top: 24px;
+    }
+
+    .gallery-toggle-btn:hover {
+      background: rgba(201, 170, 112, 0.1);
+      border-color: rgba(201, 170, 112, 0.55);
+      color: var(--ivory);
+    }
+
+    .gallery-chevron {
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-toggle-btn[aria-expanded="true"] .gallery-chevron {
+      transform: rotate(180deg);
+    }
+
+    .gallery-collapse-container {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-collapse-container.open {
+      grid-template-rows: 1fr;
+    }
+
+    .gallery-collapse-inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .carousel-wrapper {
+      margin-top: 14px;
+      position: relative;
+      background: #090a0d;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+
+    .carousel-track-container {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 100%;
+      box-sizing: border-box;
+      position: relative;
+      background: radial-gradient(circle at 50% 30%, rgba(201, 170, 112, 0.09), transparent 70%), #0c0d12;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 300px;
+    }
+
+    .slide-visual-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 75px;
+      pointer-events: none;
+    }
+
+    .screen-mockup-frame {
+      width: 220px;
+      height: 140px;
+      border: 2px solid rgba(201, 170, 112, 0.7);
+      border-radius: 4px;
+      background: linear-gradient(135deg, rgba(201, 170, 112, 0.18), rgba(6, 7, 9, 0.94));
+      box-shadow: 0 0 30px rgba(201, 170, 112, 0.22), inset 0 0 20px rgba(201, 170, 112, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+    }
+
+    .screen-mockup-frame::after {
+      content: "";
+      position: absolute;
+      bottom: -14px;
+      width: 32px;
+      height: 14px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 0 0 3px 3px;
+    }
+
+    .screen-mockup-logo {
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      color: var(--champagne-soft);
+    }
+
+    .screen-mockup-sub {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .slide-overlay-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(6, 7, 9, 0.98) 15%, rgba(6, 7, 9, 0.8) 65%, transparent 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .slide-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .slide-badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--champagne);
+      font-weight: 700;
+    }
+
+    .slide-counter {
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slide-title {
+      font-family: "Manrope", sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--ivory);
+      margin-bottom: 3px;
+    }
+
+    .slide-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .carousel-controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: rgba(6, 7, 9, 0.95);
+      border-top: 1px solid var(--line);
+    }
+
+    .carousel-arrow-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--ivory);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .carousel-arrow-btn:hover {
+      background: rgba(201, 170, 112, 0.16);
+      border-color: var(--champagne);
+      color: var(--champagne-soft);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      width: 18px;
+      border-radius: 999px;
+      background: var(--champagne);
+      box-shadow: 0 0 8px rgba(201, 170, 112, 0.5);
+    }
+
+    .contact-section {
+      padding: 48px 0 52px;
+      background: var(--black);
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-card {
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(201, 170, 112, 0.04));
+    }
+
+    .contact-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      color: var(--white);
+      margin-top: 8px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      min-width: 320px;
+    }
+
+    .contact-btn-full {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: none;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .contact-btn-email {
+      background: rgba(201, 170, 112, 0.06);
+      border: 1px solid rgba(201, 170, 112, 0.35);
+      color: var(--champagne-soft);
+    }
+
+    .contact-btn-email:hover {
+      background: rgba(201, 170, 112, 0.14);
+      border-color: rgba(201, 170, 112, 0.6);
+      color: var(--ivory);
+    }
+
+    .contact-btn-whatsapp {
+      background: rgba(37, 211, 102, 0.06);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      color: #4ade80;
+    }
+
+    .contact-btn-whatsapp:hover {
+      background: rgba(37, 211, 102, 0.14);
+      border-color: rgba(37, 211, 102, 0.6);
+      color: #86efac;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      background: #040405;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    @media (max-width: 860px) {
+      .locations-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 24px;
+      }
+      .hero {
+        padding: 45px 0 28px;
+      }
+      #locations {
+        padding: 32px 0 38px;
+      }
+      .network-subtitle {
+        white-space: normal;
+        font-size: clamp(12.5px, 3.65vw, 15.5px);
+        line-height: 1.45;
+        max-width: 100%;
+      }
+      .network-subtitle span {
+        display: block;
+        white-space: nowrap;
+      }
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
-      <a class="brand" href="#"><span class="mark">SS</span>SS Media Network LLP</a>
-      <div class="links">
-        <a href="#about">About</a>
-        <a href="#media">Media</a>
-        <a href="#locations">Locations</a>
-        <a href="#contact">Contact</a>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+  <!-- Sidebar Navigation Drawer -->
+  <aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Main Navigation">
+    <div class="sidebar-header">
+      <div class="brand">
+        <span class="brand-mark">SS</span>
+        <span class="brand-name" style="font-size:17px;">Media Network</span>
       </div>
-      <a class="nav-cta" href="mailto:connect@ssmedianetwork.in">Enquire</a>
+      <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Navigation Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="sidebar-body">
+      <div class="sidebar-links">
+        <a class="sidebar-link" href="#home" data-scroll>
+          <span>Home</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+        <a class="sidebar-link" href="#about" data-scroll>
+          <span>About US</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+        <a class="sidebar-link" href="#locations" data-scroll>
+          <span>Locations</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+        <a class="sidebar-link" href="#contact" data-scroll>
+          <span>Contact</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <div style="font-weight:600;color:var(--ivory);">SS Media Network LLP</div>
+      <div>Premium Digital Outdoor Advertising · Hyderabad</div>
+    </div>
+  </aside>
+
+  <nav>
+    <div class="nav-inner">
+      <button type="button" class="menu-btn" id="menuToggleBtn" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="sidebarDrawer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a class="brand" href="#home" id="brandLogoLink" aria-label="SS Media Network LLP - Back to top">
+        <span class="brand-mark">SS</span>
+        <span class="brand-name">Media Network LLP</span>
+      </a>
     </div>
   </nav>
 
   <main>
-    <section class="hero">
-      <div class="wrap">
-        <div class="eyebrow">Digital Outdoor Media</div>
+    <section class="hero" id="home">
+      <div class="wrap" id="about">
+        <div class="eyebrow">Digital Outdoor Advertising</div>
         <h1>Own the moment.<br><em>Own the attention.</em></h1>
-        <p>Premium digital outdoor media for brands that want to be seen, remembered and experienced in the real world.</p>
-        <div class="actions">
-          <a class="btn primary" href="#contact">Plan a campaign</a>
-          <a class="btn secondary" href="#media">Explore media</a>
-        </div>
-        <div class="hero-note">SS Media Network LLP · Hyderabad, India</div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Simple media.<br>Strong impact.</h2>
-          <p>We connect brands with premium digital screens in high-footfall locations — giving campaigns a physical presence that is difficult to ignore.</p>
-        </div>
-        <div class="grid">
-          <div class="card"><div class="num">01</div><h3>Premium visibility</h3><p>Large-format LED screens built for prominent, high-attention placements.</p></div>
-          <div class="card"><div class="num">02</div><h3>Brand presence</h3><p>Dedicated opportunities for brands that want more than a conventional advertising slot.</p></div>
-          <div class="card"><div class="num">03</div><h3>Flexible campaigns</h3><p>Choose campaign durations and packages that fit your launch, promotion or brand objective.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="media" class="showcase">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Built for<br>attention.</h2>
-          <p>Our digital outdoor media is designed around visibility, repeat exposure and premium environments.</p>
-        </div>
-        <div class="screen">
-          <div class="screen-copy">
-            <small>SS Media Network</small>
-            <h3>Your brand.<br>On the big screen.</h3>
-            <p>High-impact digital advertising for brands, agencies and businesses looking to own attention in the real world.</p>
-          </div>
-        </div>
+        <p>Strategic large-format digital LED assets intercepting premier corporate campuses and high-density passenger transit corridors across Hyderabad.</p>
       </div>
     </section>
 
     <section id="locations">
       <div class="wrap">
         <div class="section-head">
-          <h2>Our media<br>network.</h2>
-          <p>Strategically placed screens serving busy public and corporate environments in Hyderabad.</p>
+          <div class="eyebrow" style="margin-bottom:10px;">Our Media Network</div>
+          <p class="network-subtitle"><span>Unmatched physical presence in high-dwell</span> <span>environments delivering repeat visibility.</span></p>
         </div>
-        <div class="locations">
-          <div class="location"><strong>Jubilee Bus Stand</strong><span>Secunderabad · Digital outdoor media · Secunderabad</span></div>
-          <div class="location"><strong>GAR InfoBan</strong><span>Kokapet · Premium corporate environment · Kokapet</span></div>
+
+        <div class="locations-grid">
+          
+          <div class="location-card" id="jbsCard">
+            <div class="loc-head">
+              <div>
+                <div class="loc-title">Jubilee Bus Stand</div>
+                <div class="loc-sub">Secunderabad Transit Hub</div>
+              </div>
+            </div>
+
+            <p class="loc-desc">Prominent outdoor digital placement targeting high-density passenger and arterial road traffic across Secunderabad.</p>
+
+            <button type="button" class="expand-btn-full" id="jbsToggleBtn" aria-expanded="false" aria-controls="jbsDropdownContent">
+              <span id="jbsBtnText">View More Information</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <div class="status-btn-full occupied">
+              <span class="status-beacon"></span>
+              <span>Occupied</span>
+            </div>
+
+            <!-- JBS Collapsible Content -->
+            <div class="dropdown-content" id="jbsDropdownContent">
+              <div class="dropdown-inner">
+                <div class="accordion-body">
+                  <div class="metric-grid-vertical">
+                    <div class="metric-box-vertical">
+                      <span class="metric-pill-text">1.5 Lakh+ Daily Transit Commuters</span>
+                    </div>
+                    <div class="metric-box-vertical">
+                      <span class="metric-pill-text">High Dwell Time Passenger Corridors</span>
+                    </div>
+                    <div class="metric-box-vertical">
+                      <span class="metric-pill-text">Direct Metro & Intercity Bus Arteries</span>
+                    </div>
+                  </div>
+
+                  <div class="story-narrative">
+                    <p>Jubilee Bus Stand (JBS) is one of the busiest multi-modal passenger transit intersections in Telangana, connecting millions of inter-city and intra-city commuters every month across commercial Secunderabad and Hyderabad.</p>
+                    <p>Strategically positioned at main boarding and arterial egress zones, campaigns achieve maximum dwell time among traveling professionals, students, families, and everyday transit audiences.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-card" id="garCard">
+            <div class="loc-head">
+              <div>
+                <div class="loc-title">GAR InfoBan</div>
+                <div class="loc-sub">Kokapet Corporate District</div>
+              </div>
+            </div>
+
+            <p class="loc-desc">High-impact digital LED placement positioned at a central campus movement point, reaching ~1 lakh daily corporate professionals across top MNCs.</p>
+
+            <button type="button" class="expand-btn-full" id="garToggleBtn" aria-expanded="false" aria-controls="garDropdownContent">
+              <span id="garBtnText">View More Information</span>
+              <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <div class="status-btn-full available">
+              <span class="status-beacon"></span>
+              <span>Available</span>
+            </div>
+
+            <!-- GAR InfoBan Collapsible Content -->
+            <div class="dropdown-content" id="garDropdownContent">
+              <div class="dropdown-inner">
+                <div class="accordion-body">
+                  
+                  <!-- 4 Unified Single-Line Metric Cards -->
+                  <div class="metric-grid-vertical">
+                    <div class="metric-box-vertical">
+                      <span class="metric-pill-text">3 Million Monthly Corporate Footfall</span>
+                    </div>
+                    <div class="metric-box-vertical">
+                      <span class="metric-pill-text">20 Hours Daily Screen Runtime</span>
+                    </div>
+                    <div class="metric-box-vertical">
+                      <span class="metric-pill-text">Dedicated Ownership of Screen</span>
+                    </div>
+                    <div class="metric-box-vertical">
+                      <span class="metric-pill-text">5,000+ Daily Cab Movements</span>
+                    </div>
+                  </div>
+
+                  <!-- Universal Storytelling Narrative -->
+                  <div class="story-narrative">
+                    <p>We operate a dedicated 9.4 ft × 8.4 ft digital LED advertising screen at GAR InfoBahn, Kokapet, Hyderabad — an elite corporate ecosystem spanning 6 towers with 16 floors each, totaling 96 floors of premium commercial workspace.</p>
+                    <p>What makes this location compelling is its audience density. The campus sees an average footfall of around 1 lakh people every single day, translating to an estimated 3 million monthly footfall. This is not general public traffic; it is a highly concentrated corporate workforce spending their day within a premium business environment.</p>
+                    <p>The screen is positioned directly at a central movement point traversed by employees across all towers, creating repeated daily physical exposure that reinforces digital and omnichannel campaigns. Because multiple companies operate on 24/7 rotational shifts, audience movement continues actively throughout the day and into the night.</p>
+                    <p>Beyond the permanent workforce, the campus sees continuous external footfall from ongoing recruitment drives, vendor meetings, and client visits, accompanied by approximately 5,000 daily cab movements. This generates constant brand impressions across employees, leadership, visitors, and transit passengers entering or leaving the campus.</p>
+                    <p>We can operate the screen for up to 20 hours per day, tailoring loop frequencies and schedules to match target campaign dynamics. We also offer dedicated screen ownership for agreed durations, providing complete freedom to showcase a brand's product lines or manage agency client portfolios in an uncluttered, exclusive media environment.</p>
+                  </div>
+
+                  <!-- 2-Column Company List -->
+                  <div class="companies-container">
+                    <div class="section-micro-title">List of companies in GAR InfoBan</div>
+                    <div class="companies-grid-2col">
+                      <div class="company-cell">Amazon</div>
+                      <div class="company-cell">PepsiCo</div>
+                      <div class="company-cell">Capgemini</div>
+                      <div class="company-cell">Cognizant</div>
+                      <div class="company-cell">Foundever</div>
+                      <div class="company-cell">Conduent</div>
+                      <div class="company-cell">CorroHealth</div>
+                      <div class="company-cell">Advance Auto Parts</div>
+                      <div class="company-cell">HealthEdge</div>
+                      <div class="company-cell">Innova Solutions</div>
+                      <div class="company-cell">Zeta</div>
+                      <div class="company-cell">Alstom</div>
+                      <div class="company-cell">24-7 Intouch</div>
+                      <div class="company-cell">Others</div>
+                    </div>
+                  </div>
+
+                  <!-- Gallery Dropdown Toggle Button -->
+                  <button type="button" class="gallery-toggle-btn" id="garGalleryToggleBtn" aria-expanded="false" aria-controls="garGalleryCollapse">
+                    <span style="display:flex;align-items:center;gap:8px;">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                      </svg>
+                      <span id="garGalleryBtnText">View Screen & Location Gallery</span>
+                    </span>
+                    <svg class="gallery-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+
+                  <!-- Photo Carousel Dropdown -->
+                  <div class="gallery-collapse-container" id="garGalleryCollapse">
+                    <div class="gallery-collapse-inner">
+                      <div class="carousel-wrapper" id="garCarousel">
+                        <div class="carousel-track-container">
+                          <div class="carousel-track" id="garCarouselTrack">
+                            
+                            <!-- Slide 1 -->
+                            <div class="carousel-slide">
+                              <div class="slide-visual-stage">
+                                <div class="screen-mockup-frame">
+                                  <div class="screen-mockup-logo">9.4 × 8.4 FT</div>
+                                  <div class="screen-mockup-sub">High-Resolution LED</div>
+                                </div>
+                              </div>
+                              <div class="slide-overlay-content">
+                                <div class="slide-badge-row">
+                                  <span class="slide-badge">Perspective 01 · Central Concourse</span>
+                                  <span class="slide-counter">01 / 04</span>
+                                </div>
+                                <div class="slide-title">Primary Pedestrian Concourse</div>
+                                <div class="slide-desc">Direct eye-level orientation intercepting workforce transit between the 6 towers.</div>
+                              </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="carousel-slide">
+                              <div class="slide-visual-stage">
+                                <div class="screen-mockup-frame" style="border-color:rgba(134,239,172,0.6);box-shadow:0 0 25px rgba(34,197,94,0.18);">
+                                  <div class="screen-mockup-logo" style="color:#86efac;">5,000+ CABS</div>
+                                  <div class="screen-mockup-sub">Daily Movement</div>
+                                </div>
+                              </div>
+                              <div class="slide-overlay-content">
+                                <div class="slide-badge-row">
+                                  <span class="slide-badge">Perspective 02 · Transit Junction</span>
+                                  <span class="slide-counter">02 / 04</span>
+                                </div>
+                                <div class="slide-title">Transit & Cab Pick-Up Points</div>
+                                <div class="slide-desc">Continuous visibility facing arterial vehicle boarding lanes and employee pick-up zones.</div>
+                              </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="carousel-slide">
+                              <div class="slide-visual-stage">
+                                <div class="screen-mockup-frame" style="border-color:rgba(201,170,112,0.85);box-shadow:0 0 35px rgba(201,170,112,0.35);">
+                                  <div class="screen-mockup-logo">20 HOURS</div>
+                                  <div class="screen-mockup-sub">Day & Night Shifts</div>
+                                </div>
+                              </div>
+                              <div class="slide-overlay-content">
+                                <div class="slide-badge-row">
+                                  <span class="slide-badge">Perspective 03 · Night Shift Luminance</span>
+                                  <span class="slide-counter">03 / 04</span>
+                                </div>
+                                <div class="slide-title">Extended Evening & Night Runtime</div>
+                                <div class="slide-desc">High contrast outdoor LED illumination engaging rotational employees across 24/7 global firms.</div>
+                              </div>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="carousel-slide">
+                              <div class="slide-visual-stage">
+                                <div class="screen-mockup-frame" style="border-color:rgba(255,255,255,0.5);box-shadow:0 0 25px rgba(255,255,255,0.1);">
+                                  <div class="screen-mockup-logo">96 FLOORS</div>
+                                  <div class="screen-mockup-sub">Grade-A Corporate Park</div>
+                                </div>
+                              </div>
+                              <div class="slide-overlay-content">
+                                <div class="slide-badge-row">
+                                  <span class="slide-badge">Perspective 04 · Campus Surround</span>
+                                  <span class="slide-counter">04 / 04</span>
+                                </div>
+                                <div class="slide-title">6 Towers Corporate Surround</div>
+                                <div class="slide-desc">Positioned to intercept repeated daily movement among 25+ marquee enterprise campuses.</div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <!-- Carousel Controls -->
+                        <div class="carousel-controls-bar">
+                          <button type="button" class="carousel-arrow-btn" id="garCarouselPrev" aria-label="Previous Slide">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                          </button>
+
+                          <div class="carousel-dots" id="garCarouselDots">
+                            <button type="button" class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
+                            <button type="button" class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+                            <button type="button" class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
+                            <button type="button" class="carousel-dot" data-index="3" aria-label="Slide 4"></button>
+                          </div>
+
+                          <button type="button" class="carousel-arrow-btn" id="garCarouselNext" aria-label="Next Slide">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                          </button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact-section">
       <div class="wrap">
-        <div class="contact-box">
+        <div class="contact-card">
           <div>
-            <div class="eyebrow">Start a conversation</div>
-            <h2>Have a brand that deserves attention?</h2>
+            <div class="eyebrow" style="margin-bottom:8px;">Start a Conversation</div>
+            <h3>Have a brand that<br>deserves attention?</h3>
           </div>
-          <div><a class="btn primary" href="mailto:connect@ssmedianetwork.in?subject=Advertising%20Enquiry">connect@ssmedianetwork.in</a><div style="font-size:12px;color:#8a8e95;margin-top:10px;text-align:center">Brand partnerships & media enquiries</div></div>
+          <div style="width: 100%; max-width: 380px;">
+            <div class="contact-actions">
+              <a class="contact-btn-full contact-btn-email" href="mailto:connect@ssmedianetwork.in?subject=Media%20Campaign%20Enquiry%20%E2%80%94%20SS%20Media%20Network" aria-label="Send an Email">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <span>Send an Email</span>
+              </a>
+
+              <a class="contact-btn-full contact-btn-whatsapp" href="https://wa.me/919381197595?text=Hello%20SS%20Media%20Network%2C%20I%20would%20like%20to%20enquire%20about%20your%20DOOH%20advertising%20screens." target="_blank" rel="noopener noreferrer" aria-label="Connect on WhatsApp">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.35.491 1.199.534 1.286.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.177.181-.076.355.101.173.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.274.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.184 1.564 5.938l-1.564 5.708 5.848-1.533c1.705.952 3.674 1.507 5.772 1.507 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/>
+                </svg>
+                <span>Connect on WhatsApp</span>
+              </a>
+            </div>
+            <div style="font-size:11.5px;color:var(--muted);margin-top:14px;text-align:center;letter-spacing:0.04em;">Direct brand partnerships & media inquiries</div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div>© 2026 SS Media Network LLP. All rights reserved.</div>
-    <div>Digital Outdoor Media · Hyderabad, India</div>
+    <div class="wrap footer-inner">
+      <div>© 2026 SS Media Network LLP. All rights reserved.</div>
+      <div>Digital Outdoor Media · Hyderabad, India</div>
+    </div>
   </footer>
+
+  <script>
+    (function() {
+      // Accordion handler for location cards
+      function setupAccordion(btnId, containerId, textId) {
+        const toggleBtn = document.getElementById(btnId);
+        const dropdown = document.getElementById(containerId);
+        const btnText = document.getElementById(textId);
+
+        if (toggleBtn && dropdown) {
+          toggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = dropdown.classList.contains('open');
+
+            if (isOpen) {
+              dropdown.classList.remove('open');
+              toggleBtn.setAttribute('aria-expanded', 'false');
+              if (btnText) btnText.textContent = 'View More Information';
+            } else {
+              dropdown.classList.add('open');
+              toggleBtn.setAttribute('aria-expanded', 'true');
+              if (btnText) btnText.textContent = 'View Less Information';
+            }
+          });
+        }
+      }
+
+      setupAccordion('garToggleBtn', 'garDropdownContent', 'garBtnText');
+      setupAccordion('jbsToggleBtn', 'jbsDropdownContent', 'jbsBtnText');
+
+      // Gallery Dropdown Accordion Setup
+      const galleryBtn = document.getElementById('garGalleryToggleBtn');
+      const galleryDropdown = document.getElementById('garGalleryCollapse');
+      const galleryBtnText = document.getElementById('garGalleryBtnText');
+
+      if (galleryBtn && galleryDropdown) {
+        galleryBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const isOpen = galleryDropdown.classList.contains('open');
+          if (isOpen) {
+            galleryDropdown.classList.remove('open');
+            galleryBtn.setAttribute('aria-expanded', 'false');
+            if (galleryBtnText) galleryBtnText.textContent = 'View Screen & Location Gallery';
+          } else {
+            galleryDropdown.classList.add('open');
+            galleryBtn.setAttribute('aria-expanded', 'true');
+            if (galleryBtnText) galleryBtnText.textContent = 'Hide Screen & Location Gallery';
+          }
+        });
+      }
+
+      // Photo Carousel Logic
+      const track = document.getElementById('garCarouselTrack');
+      const prevBtn = document.getElementById('garCarouselPrev');
+      const nextBtn = document.getElementById('garCarouselNext');
+      const dots = document.querySelectorAll('#garCarouselDots .carousel-dot');
+      let currentSlide = 0;
+      const totalSlides = 4;
+
+      function updateSlide(index) {
+        currentSlide = (index + totalSlides) % totalSlides;
+        if (track) {
+          track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        dots.forEach((dot, i) => {
+          if (i === currentSlide) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          updateSlide(currentSlide - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          updateSlide(currentSlide + 1);
+        });
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const targetIndex = parseInt(this.getAttribute('data-index'), 10);
+          updateSlide(targetIndex);
+        });
+      });
+
+      // Mobile Touch Gesture Support
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const carouselEl = document.getElementById('garCarousel');
+      if (carouselEl) {
+        carouselEl.addEventListener('touchstart', function(e) {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carouselEl.addEventListener('touchend', function(e) {
+          touchEndX = e.changedTouches[0].screenX;
+          if (touchStartX - touchEndX > 45) {
+            updateSlide(currentSlide + 1); // Swipe left -> Next
+          } else if (touchEndX - touchStartX > 45) {
+            updateSlide(currentSlide - 1); // Swipe right -> Prev
+          }
+        }, { passive: true });
+      }
+
+      // Sidebar Drawer Controls
+      const menuBtn = document.getElementById('menuToggleBtn');
+      const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+      const sidebarOverlay = document.getElementById('sidebarOverlay');
+      const sidebarDrawer = document.getElementById('sidebarDrawer');
+
+      function openSidebar() {
+        if (sidebarDrawer && sidebarOverlay && menuBtn) {
+          sidebarDrawer.classList.add('active');
+          sidebarOverlay.classList.add('active');
+          menuBtn.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeSidebar() {
+        if (sidebarDrawer && sidebarOverlay && menuBtn) {
+          sidebarDrawer.classList.remove('active');
+          sidebarOverlay.classList.remove('active');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      }
+
+      if (menuBtn) menuBtn.addEventListener('click', openSidebar);
+      if (sidebarCloseBtn) sidebarCloseBtn.addEventListener('click', closeSidebar);
+      if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebarDrawer && sidebarDrawer.classList.contains('active')) {
+          closeSidebar();
+        }
+      });
+
+      // Auto-close sidebar on link navigation
+      const navScrollLinks = document.querySelectorAll('.sidebar-link[data-scroll]');
+      navScrollLinks.forEach((link) => {
+        link.addEventListener('click', function() {
+          closeSidebar();
+        });
+      });
+
+      // Brand Title click -> scroll to top immediately
+      const brandLogoLink = document.getElementById('brandLogoLink');
+      if (brandLogoLink) {
+        brandLogoLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeSidebar();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+    })();
+  </script>
 </body>
 </html>
